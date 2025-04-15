@@ -19,4 +19,6 @@ TEMP: 36.9 °C
 
 EDA: 0.62 μS
 
-Stress Level: High Summary: Your heart rate and EDA are elevated, which might suggest stress. Try taking a short walk or some deep breaths.
+Stress Level: High 
+
+Summary: Your heart rate and EDA are elevated, which might suggest stress. Try taking a short walk or some deep breaths.
