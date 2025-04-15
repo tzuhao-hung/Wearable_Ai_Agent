@@ -22,11 +22,11 @@ iface = gr.Interface(
         gr.Slider(50, 150, value=80, label="Heart Rate (bpm)"),
         gr.Slider(30, 40, value=36.5, label="Temperature (°C)"),
         gr.Slider(0, 10, value=2.5, label="EDA (µS)"),
-        gr.Slider(0, 100, value=50, label="acc_magnitude")
+        gr.Slider(0, 100, value=50, label="Movement Acceleration (acc_magnitude)")
     ],
     outputs="text",
     title="🧠 Stress AI Agent",
-    description="輸入一筆生理數據，讓 AI 幫你分析當前壓力程度與建議。"
+    description="Input physiological data to let the AI analyze your current stress level and provide recommendations."
 )
 
 if __name__ == "__main__":
