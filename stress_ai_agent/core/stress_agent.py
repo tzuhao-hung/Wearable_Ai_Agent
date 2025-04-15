@@ -3,7 +3,7 @@ from azure.ai.inference import ChatCompletionsClient
 from azure.ai.inference.models import SystemMessage, UserMessage
 from azure.core.credentials import AzureKeyCredential
 
-# 初始化 GPT 客戶端
+# Initialize GPT client
 token = os.environ.get("GITHUB_TOKEN")
 client = ChatCompletionsClient(
     endpoint="https://models.inference.ai.azure.com",
@@ -12,8 +12,8 @@ client = ChatCompletionsClient(
 
 def analyze_stress(data: dict) -> str:
     """
-    接收一筆生理資料（dict 格式），回傳 GPT 分析結果。
-    必須包含：HR, TEMP, EDA, acc_magnitude
+    Receives physiological data (in dict format) and returns GPT analysis results.
+    Must include: HR, TEMP, EDA, acc_magnitude
     """
     hr = data.get("HR")
     temp = data.get("TEMP")
