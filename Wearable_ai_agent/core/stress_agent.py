@@ -1,0 +1,46 @@
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.ai.inference.models import SystemMessage, UserMessage
+from azure.core.credentials import AzureKeyCredential
+
+# Initialize GPT client
+token = os.environ.get("GITHUB_TOKEN")
+client = ChatCompletionsClient(
+    endpoint="https://models.inference.ai.azure.com",
+    credential=AzureKeyCredential(token),
+)
+
+def analyze_stress(data: dict) -> str:
+    """
+    Receives physiological data (in dict format) and returns GPT analysis results.
+    Must include: HR, TEMP, EDA, acc_magnitude
+    """
+    hr = data.get("HR")
+    temp = data.get("TEMP")
+    eda = data.get("EDA")
+    acc = data.get("acc_magnitude")
+
+    prompt = f"""
+The user provided the following physiological data:
+- Heart Rate (HR): {hr} bpm
+- Skin Temperature: {temp} °C
+- Electrodermal Activity (EDA): {eda} µS
+- Movement Acceleration: {acc}
+
+Keep your analysis concise. Limit to 3–5 key points, and avoid overly detailed physiological explanations.
+As a stress analysis AI agent, estimate the user's stress level (Low / Medium / High),
+explain your reasoning based on the data, and give one recommendation to reduce stress if needed.
+"""
+
+    response = client.complete(
+        messages=[
+            SystemMessage(content="You are a helpful assistant."),
+            UserMessage(content=prompt)
+        ],
+        model="gpt-4o-mini",
+        temperature=0.7,
+        max_tokens=600,
+        top_p=1.0
+    )
+
+    return response.choices[0].message.content
