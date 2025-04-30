@@ -1,4 +1,4 @@
-# 🧠 Wearable Multi-Agent Health Analysis System
+# Wearable Multi-Agent Health Analysis System
 
 This project is a lightweight backend system that processes wearable sensor data and gives helpful health feedback.  
 We use OpenAI’s AutoGen to create different agents that each handle a specific part of health analysis — like activity, sleep, and stress. Then we bring everything together into one simple daily health summary.
@@ -59,4 +59,5 @@ You can connect this backend to a frontend or use it as-is for analysis.
 
 ---
 
-
+## Demo
+▶️ [Watch the simulation demo on YouTube] https://youtu.be/xsnx0qr09eI
