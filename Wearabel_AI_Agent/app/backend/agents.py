@@ -1,4 +1,3 @@
-# backend/agents.py
 
 from autogen import AssistantAgent, UserProxyAgent
 from core.activity_agent import run_activity_agent
