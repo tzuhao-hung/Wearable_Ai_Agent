@@ -1,5 +1,11 @@
 # 🧠 Wearable Multi-Agent Health Analysis System
 
+## 🎯 Problem & Motivation
+
+With an increasing number of young people choosing not to marry, the demand for independent living and long-term care solutions will grow. WearableAgent is designed to meet this demand, providing real-time health monitoring and personalized care, making it an essential tool for those living alone in the future.
+
+WearableAgent addresses this by integrating wearable data tracking with AI technology, offering customized health recommendations and care, especially for individuals living alone.
+
 ## Project Overview
 
 **WearableAgent** is a lightweight backend system designed to help users better understand their physical and mental health using data collected from wearable sensors. By analyzing movement, heart rate variability (HRV), skin temperature, and electrodermal activity (EDA), the system classifies activity levels, evaluates sleep quality, and assesses stress states.
