@@ -125,9 +125,14 @@ By aligning with trends in smart living and long-term care, WearableAgent offers
 ---
 
 ## Meet the Team
-| 👤 Name | 🧠 Role | 💬 GitHub |
-|--------|---------|------------|
-| 🧑‍💻 Alice | Backend Agent Developer | [@alice123](https://github.com/alice123) |
-| 🧑‍💻 Alice | Backend Agent Developer  | [@bobdev](https://github.com/bobdev) |
-| 🧑‍💻 Alice | Full Stack Developer | [@carolhealth](https://github.com/carolhealth) |
-| 🧑‍💻 Alice | Full Stack Developer  | [@davidsys](https://github.com/davidsys) |
+| 👤 Name | 🧠 Role | 💬 GitHub | 💬 More Info |
+|--------|---------|------------|------------|
+| 🧑‍💻 Howard | Backend Agent Developer | @tzuhao-huang |linkedin.com/in/tzuhaohung1
+| 🧑‍💻 Chia | Backend Agent Developer  | @Lin8823 |c.m.peng23@gmail.com
+| 🧑‍💻 Jess | Full Stack Developer | @dsjes |linkedin.com/in/jess-hsieh
+| 🧑‍💻 Yung | Full Stack Developer  | @Chiang0111 |linkedin.com/in/yung-chun-chiang-76841222a
+
+🧑‍💻 Howard	Backend Agent Dev	@tzuhao-huang
+🧑‍💻 Chia	Backend Agent Dev	@Lin8823
+🧑‍💻 Jess	Full Stack Dev	@dsjes
+🧑‍💻 Yung	Full Stack Dev	@Chiang0111
