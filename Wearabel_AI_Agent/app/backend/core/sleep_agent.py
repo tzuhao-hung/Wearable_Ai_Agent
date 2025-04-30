@@ -11,7 +11,7 @@ def build_sleep_prompt(data: dict) -> str:
     - gsr (Galvanic Skin Response)
     - time_of_night (time)
     """
-    # 解析輸入
+    # Parse the input data
     hr = data.get("heart_rate", "unknown")
     hrv = data.get("hrv", "unknown")
     temp = data.get("skin_temperature", "unknown")
@@ -19,13 +19,13 @@ def build_sleep_prompt(data: dict) -> str:
     gsr = data.get("gsr", "unknown")
     time_of_night = data.get("time_of_night", "unknown")
 
-    # 把加速度 sample 整理成文字
+    # Format the acceleration samples into readable text
     if isinstance(acc_samples, list) and len(acc_samples) > 0:
         acc_text = "\n".join([f"  - Sample {i+1}: {sample}" for i, sample in enumerate(acc_samples[:10])])
     else:
         acc_text = "No acceleration data available."
 
-    # 組合 prompt
+    # Build the prompt
     prompt = f"""
 You are a sleep analysis expert. The following physiological data was recorded during the user's sleep:
 
