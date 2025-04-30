@@ -1,4 +1,3 @@
-# backend/app.py
 
 import asyncio
 import os
