@@ -1,19 +1,17 @@
-# backend/group_summary_chat.py
 
 from autogen import GroupChat, GroupChatManager
 from backend.agents import setup_agents
 
 
-
 def run_group_health_chat(activity_data, sleep_data, stress_data, llm_config):
     agents = setup_agents(llm_config)
 
-    # 1️⃣ 個別分析 activity, sleep, stress
+    # 1️⃣ Analyze activity, sleep, and stress individually
     activity_result = agents["activity_agent"](activity_data, agents["user_proxy"], agents["activity_llm"])
     sleep_result = agents["sleep_agent"](sleep_data, agents["user_proxy"], agents["sleep_llm"])
     stress_result = agents["stress_agent"](stress_data, agents["user_proxy"], agents["stress_llm"])
 
-    # 2️⃣ GroupChat 開場訊息
+    # 2️⃣ Construct the opening message for GroupChat
     opening_message = f"""
 You are now in a group chat.
 
@@ -96,7 +94,7 @@ Important:
 - Until then, please complete all parts as required.
 """
 
-    # 3️⃣ 建立 GroupChat
+    # 3️⃣ Create the GroupChat
     group_chat = GroupChat(
         agents=[
             agents["user_proxy"],
@@ -104,7 +102,7 @@ Important:
             agents["nutrition_llm"]
         ],
         messages=[],
-        speaker_selection_method="auto"  # 正常使用 auto，讓 agent 自己順序流動
+        speaker_selection_method="auto"  # Normally use "auto" to allow agent-to-agent flow
     )
 
     manager = GroupChatManager(
@@ -112,11 +110,11 @@ Important:
         llm_config=llm_config
     )
 
-    # 4️⃣ 啟動 GroupChat
+    # 4️⃣ Start the GroupChat session
     agents["user_proxy"].initiate_chat(
         recipient=manager,
         message=opening_message,
-        send_termination_message=True  # 讓 NutritionAgent 完成後結束
+        send_termination_message=True  # Let NutritionAgent terminate the session at the end
     )
 
     messages = manager.groupchat.messages
@@ -129,17 +127,17 @@ Important:
         content = m.get("content", "")
         
         if not content:
-            continue  # 沒內容就跳過
+            continue  # Skip empty messages
 
-        # 如果是異常偵測 Agent 的訊息
+        # Capture the AbnormalyDetectionAgent result
         if sender == "AbnormalyDetectionAgent" and abnormaly_detection_result is None:
             abnormaly_detection_result = content.strip()
 
-        # 如果是營養建議 Agent 的訊息
+        # Capture the NutritionAgent result
         if sender == "NutritionAgent" and nutrition_result is None:
             nutrition_result = content.strip()
 
-    # 防止空值
+    # Fallback values in case no result was returned
     if abnormaly_detection_result is None:
         abnormaly_detection_result = "No abnormaly detection result."
 
@@ -147,9 +145,7 @@ Important:
         nutrition_result = "No nutrition suggestion."
 
 
-
-
-    # 6️⃣ GroupChat結束後，送去 HealthSummaryAgent
+    # After GroupChat ends, send to HealthSummaryAgent
     summary_message = f"""
     🏃 Activity Summary:
     {activity_result}
@@ -170,22 +166,22 @@ Important:
     - After you complete your reply, you must add a single line TERMINATE at the end. Only after doing so the session will end.
     """
 
-    # 🔥 [重點] 這邊開新的 chat, 但只跑一輪！
+    # Launch a new chat with HealthSummaryAgent (only 1 round)
     agents["user_proxy"].initiate_chat(
         recipient=agents["health_summary_llm"],
         message=summary_message,
-        max_turns=1,  # <<< 加這個！強制只讓 HealthSummaryAgent 回一次
-        clear_history=True,  # <<< 不帶舊的訊息
+        max_turns=1,  # <<< Force only one reply from HealthSummaryAgent
+        clear_history=True,  # <<< Do not carry over previous messages
         send_termination_message=True
     )
 
-    # 🔥 這時候就可以直接收訊息了
+    # Retrieve the summary response
     health_summary_result = agents["user_proxy"].last_message(agents["health_summary_llm"]).get("content", "No health summary.")
 
-    # 最後 🔥 強制終止 UserProxy 避免死循環
-    #agents["user_proxy"].stop_replying()
+    # Final fallback safeguard (optional if needed)
+    # agents["user_proxy"].stop_replying()
 
-    # 7️⃣ 收集結果
+    # Return the full result package
     results = {
         "activity_result": activity_result,
         "sleep_result": sleep_result,
