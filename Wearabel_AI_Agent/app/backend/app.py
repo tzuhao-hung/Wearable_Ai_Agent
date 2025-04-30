@@ -95,19 +95,19 @@ def analyze_nutrition_route():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# backend/app.py (只列出 group_summary 部分)
+
 
 @app.route('/group_summary_chat', methods=['POST'])
 def group_health_chat():
     try:
         data = request.get_json()
 
-        # 取出 activity, sleep, stress data
+        
         activity_data = data.get('activity_data')
         sleep_data = data.get('sleep_data')
         stress_data = data.get('stress_data')
 
-        # 執行 Group Health Chat
+        
         results = run_group_health_chat(
             activity_data=activity_data,
             sleep_data=sleep_data,
