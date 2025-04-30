@@ -78,10 +78,4 @@ This structure is easy to scale and extend with new agents or sensor types.
 
 ▶️ [Watch the simulation demo on YouTube](https://youtu.be/xsnx0qr09eI)
 
----
 
-## How to Run
-
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
