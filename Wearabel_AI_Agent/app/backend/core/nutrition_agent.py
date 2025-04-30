@@ -1,4 +1,3 @@
-# core/nutrition_agent.py
 
 def build_nutrition_prompt(activity_result: str, sleep_result: str, stress_result: str) -> str:
     """
