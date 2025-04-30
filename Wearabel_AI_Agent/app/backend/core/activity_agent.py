@@ -1,3 +1,4 @@
+
 def build_activity_prompt(data: dict) -> str:
     """
     Builds a user-friendly prompt for the ActivityAgent to analyze wearable sensor data.
