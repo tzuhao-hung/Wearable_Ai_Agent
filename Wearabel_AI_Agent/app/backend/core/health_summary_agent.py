@@ -1,4 +1,3 @@
-# core/health_summary_agent.py
 
 def build_summary_prompt(activity_result: str, sleep_result: str, stress_result: str = None, abnormal_result: str = None) -> str:
     """
