@@ -131,8 +131,3 @@ By aligning with trends in smart living and long-term care, WearableAgent offers
 | 🧑‍💻 Chia | Backend Agent Developer  | @Lin8823 |c.m.peng23@gmail.com
 | 🧑‍💻 Jess | Full Stack Developer | @dsjes |linkedin.com/in/jess-hsieh
 | 🧑‍💻 Yung | Full Stack Developer  | @Chiang0111 |linkedin.com/in/yung-chun-chiang-76841222a
-
-🧑‍💻 Howard	Backend Agent Dev	@tzuhao-huang
-🧑‍💻 Chia	Backend Agent Dev	@Lin8823
-🧑‍💻 Jess	Full Stack Dev	@dsjes
-🧑‍💻 Yung	Full Stack Dev	@Chiang0111
