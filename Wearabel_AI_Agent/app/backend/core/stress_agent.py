@@ -1,4 +1,3 @@
-# core/stress_agent.py
 
 def build_stress_prompt(data: dict) -> str:
     """
