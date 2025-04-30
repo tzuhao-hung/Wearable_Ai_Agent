@@ -14,6 +14,10 @@ After this discussion:
 This project was built to address a common gap in wearable tech: while devices collect a lot of raw data, they often fail to provide meaningful, personalized feedback. WearableAgent helps bridge that gap.
 
 ---
+## 📽️ Demo
+
+▶️ [Watch the simulation demo on YouTube](https://youtu.be/xsnx0qr09eI)
+---
 
 ## What This Project Does
 
@@ -23,6 +27,42 @@ This project was built to address a common gap in wearable tech: while devices c
 - Outputs a clear, structured daily health summary
 
 ---
+
+## Frontend Module
+
+**Functionality**
+The frontend module, built with the Streamlit framework, is the primary interface for user interaction. It allows users to input health-related data and visualize analytical results in an intuitive format. Key features include:
+
+- **User Profile Management**: Users can register new profiles or select existing ones.
+
+- **Data Entry**: Users can input activity, sleep, and stress-related data.
+
+- **Results Visualization**: Analytical outcomes are displayed using charts and textual summaries.
+
+- **Personalized Menu Suggestions**: Tailored dietary plans are generated and presented based on the user's physiological state.
+
+**Key Code Components**
+
+- **app/frontend/app.py**:
+
+  - Implements the main interface, allowing user selection, data input, and analysis triggers.
+  - Sends API requests to the backend for activity, sleep, and stress analysis (e.g., /analyze_activity, /analyze_sleep).
+
+- **app/frontend/app_func.py**:
+
+  - Contains functions for generating charts, such as draw_consumption_intake_chart and draw_sleep_chart.
+  - Implements the render_menu function to display dietary suggestions.
+---
+## Backend Structure
+
+The backend is implemented in Python using:
+
+- **Flask** for handling API requests
+- **AutoGen agents** that are initialized once and reused
+- **Custom tools** for data processing and formatting
+- A modular pipeline where each agent performs its own task before syncing through GroupChat
+
+This structure is easy to scale and extend with new agents or sensor types.
 
 ## Agent Overview
 
@@ -60,22 +100,34 @@ After the Activity, Sleep, and Stress agents finish their analysis, a **GroupCha
 This agent-to-agent collaboration mimics expert reasoning across multiple health domains.
 
 ---
+## System Integration Workflow
 
-## Backend Structure
+The interaction between frontend and backend follows a clear pipeline:
 
-The backend is implemented in Python using:
+1. User Input: Users enter physiological and behavioral data through the Streamlit frontend.
+2. Data Transmission: The frontend sends structured data to the backend via RESTful API calls.
+3. Agent Collaboration: Each backend agent processes its assigned data. Results are shared through a GroupChat-like system where agents exchange and refine interpretations.
+4. Report Compilation: The Health Summary Agent gathers all insights and presents them as a holistic report.
+5. Result Display: The final report and visualizations are rendered back on the frontend for user review.
 
-- **Flask** for handling API requests
-- **AutoGen agents** that are initialized once and reused
-- **Custom tools** for data processing and formatting
-- A modular pipeline where each agent performs its own task before syncing through GroupChat
+---
+## Future Work and Product Potential
+WearableAgent has strong potential for further expansion:
 
-This structure is easy to scale and extend with new agents or sensor types.
+  -**Smart Home Integration**: The system can connect with smart appliances (e.g., lighting, air conditioning) to create a responsive, health-optimized living environment.
+
+  -**Support for Independent Living**: Especially beneficial for elderly individuals living alone, the system can monitor health trends and alert caregivers or emergency contacts in case of anomalies.
+
+  -**Scalable Health Solutions**: With its modular design, the system can be adapted for corporate wellness programs, assisted living, or even broader public health applications.
+
+By aligning with trends in smart living and long-term care, WearableAgent offers a promising path toward more proactive, personalized, and connected health management.
 
 ---
 
-## 📽️ Demo
-
-▶️ [Watch the simulation demo on YouTube](https://youtu.be/xsnx0qr09eI)
-
-
+## Meet the Team
+| 👤 Name | 🧠 Role | 💬 GitHub |
+|--------|---------|------------|
+| 🧑‍💻 Alice | Backend Agent Developer | [@alice123](https://github.com/alice123) |
+| 🧑‍💻 Alice | Backend Agent Developer  | [@bobdev](https://github.com/bobdev) |
+| 🧑‍💻 Alice | Full Stack Developer | [@carolhealth](https://github.com/carolhealth) |
+| 🧑‍💻 Alice | Full Stack Developer  | [@davidsys](https://github.com/davidsys) |
