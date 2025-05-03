@@ -1,5 +1,7 @@
 # 🧠 Wearable Multi-Agent Health Analysis System
 
+![image alt][https://github.com/tzuhao-hung/Wearable_Ai_Agent/blob/eeda7b08113bec0ecf94704820202c4b3733cae3/image.png]
+
 ## 🎯 Problem & Motivation
 
 With an increasing number of young people choosing not to marry, the demand for independent living and long-term care solutions will grow. WearableAgent is designed to meet this demand, providing real-time health monitoring and personalized care, making it an essential tool for those living alone in the future.
