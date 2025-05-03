@@ -1,6 +1,6 @@
 # 🧠 Wearable Multi-Agent Health Analysis System
 
-![image alt][https://github.com/tzuhao-hung/Wearable_Ai_Agent/blob/eeda7b08113bec0ecf94704820202c4b3733cae3/image.png]
+![image alt](https://github.com/tzuhao-hung/Wearable_Ai_Agent/blob/eeda7b08113bec0ecf94704820202c4b3733cae3/image.png)
 
 ## 🎯 Problem & Motivation
 
